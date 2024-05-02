@@ -9,6 +9,8 @@ import uz.pdp.backend.models.bot_user.BotUser;
 import uz.pdp.backend.services.user_service.UserService;
 import uz.pdp.backend.services.user_service.UserServiceImpl;
 
+import java.util.Objects;
+
 import static uz.pdp.ui.Main.TOKEN;
 
 public class BotHandler {
@@ -27,9 +29,10 @@ public class BotHandler {
 
                 if (text != null) {
                     System.out.println(currentBotUser.getUserName() + " : " + text);
-                    if (text.equals("/start")) {
-                        String startText = "Hello " + currentBotUser.getFirstName() + "! Welcome to our Bot!";
-                        sentText(currentBotUser.getId(), startText);
+                    if (Objects.equals("/start",text)) {
+
+                        bot.execute(new SendMessage(chat.id(), "Welcome to bot!"));
+
                     }
                 }
             }
