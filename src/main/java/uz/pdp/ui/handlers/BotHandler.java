@@ -29,10 +29,9 @@ public class BotHandler {
 
                 if (text != null) {
                     System.out.println(currentBotUser.getUserName() + " : " + text);
-                    if (Objects.equals("/start",text)) {
+                    if (Objects.equals("/start", text)) {
 
-                        bot.execute(new SendMessage(chat.id(), "Welcome to bot!"));
-
+                        bot.execute(new SendMessage(chat.id(), "Hello " + currentBotUser.getFirstName() + "! Welcome to Bot! "));
                     }
                 }
             }
